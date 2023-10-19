@@ -1,6 +1,20 @@
 import textfile
 import glob
-import json
+
+
+dir_path = './build/*.html'
+search_in_dir = '<a href="./" class="list-group-item ">'
+replace_in_dir = '<a href="./index.html" class="list-group-item ">'
+
+subdir_path = './build/**/*.html'
+search_in_subdir = '<a href="../" class="list-group-item ">'
+replace_in_subdir = '<a href="../index.html" class="list-group-item ">'
+
+seach_header_in_dir = '<a href="." class="logo">'
+replace_header_in_dir = '<a href="./index.html" class="logo">'
+
+seach_header_in_subdir = '<a href=".." class="logo">'
+replace_header_in_subdir = '<a href="../index.html" class="logo">'
 
 
 def replace(directory_path, search_string, replace_string):
@@ -11,29 +25,13 @@ def replace(directory_path, search_string, replace_string):
 
 
 def main():
-    appsetting = json.load(open('settings.json', 'r'))
-
     # build直下の.htmlファイル書換
-    replace(
-        appsetting['directory_path'],
-        appsetting['search_in_dir'],
-        appsetting['replace_in_dir'])
-
-    replace(
-        appsetting['directory_path'],
-        appsetting['searh_header_in_dir'],
-        appsetting['replace_header_in_dir'])
+    replace(dir_path, search_in_dir, replace_in_dir)
+    replace(dir_path, seach_header_in_dir, replace_header_in_dir)
 
     # build/**/の.htmlファイル書換
-    replace(
-        appsetting['subdirectory_path'],
-        appsetting['search_in_subdir'],
-        appsetting['replace_in_subdir'])
-
-    replace(
-        appsetting['subdirectory_path'],
-        appsetting['search_header_in_subdir'],
-        appsetting['replace_header_in_subdir'])
+    replace(subdir_path, search_in_subdir, replace_in_subdir)
+    replace(subdir_path, seach_header_in_subdir, replace_header_in_subdir)
 
 
 if __name__ == "__main__":
