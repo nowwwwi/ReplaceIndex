@@ -24,15 +24,10 @@ def replace(directory_path, search_string, replace_string):
         print('Replace complete:', file)
 
 
-def main():
-    # build直下の.htmlファイル書換
-    replace(dir_path, search_in_dir, replace_in_dir)
-    replace(dir_path, seach_header_in_dir, replace_header_in_dir)
+# build直下の.htmlファイル書換
+replace(dir_path, search_in_dir, replace_in_dir)
+replace(dir_path, seach_header_in_dir, replace_header_in_dir)
 
-    # build/**/の.htmlファイル書換
-    replace(subdir_path, search_in_subdir, replace_in_subdir)
-    replace(subdir_path, seach_header_in_subdir, replace_header_in_subdir)
-
-
-if __name__ == "__main__":
-    main()
+# build/**/の.htmlファイル書換
+replace(subdir_path, search_in_subdir, replace_in_subdir)
+replace(subdir_path, seach_header_in_subdir, replace_header_in_subdir)
