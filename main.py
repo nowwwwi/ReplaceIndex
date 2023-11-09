@@ -10,7 +10,7 @@ def replace(directory_path, search_string, replace_string):
         print('Replace complete:', file)
 
 
-if __name__ == '__main__':
+def main():
     # build直下の.htmlファイル書換
     replace(
         settings.DIR_PATH,
@@ -25,10 +25,14 @@ if __name__ == '__main__':
     # build/**/の.htmlファイル書換
     replace(
         settings.SUBDIR_PATH,
-        settings.SEARCH_HEADER_IN_SUBDIR,
-        settings.REPLACE_HEADER_IN_SUBDIR)
+        settings.SEARCH_IN_SUBDIR,
+        settings.REPLACE_IN_SUBDIR)
 
     replace(
         settings.SUBDIR_PATH,
         settings.SEARCH_HEADER_IN_SUBDIR,
         settings.REPLACE_HEADER_IN_SUBDIR)
+
+
+if __name__ == '__main__':
+    main()
